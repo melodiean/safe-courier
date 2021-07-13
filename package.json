@@ -1,0 +1,14 @@
+{
+  "name": "safe-courier",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:Melodiean/safe-courier.git",
+  "author": "Melodiean",
+  "scripts": {
+"start":"concurrently \"cd api && node server.js\" \"cd client && yarn start\""},
+ 
+ "license": "MIT",
+  "dependencies": {
+    "concurrently": "^6.2.0"
+  }
+}
