@@ -5,11 +5,12 @@
   "repository": "git@github.com:Melodiean/safe-courier.git",
   "author": "Melodiean",
   "scripts": {
-    "build":"webpack",
-    "start":"concurrently \"cd api && node server.js\" \"cd client && yarn start\""},
- 
- "license": "MIT",
+    "build": "webpack",
+    "start": "concurrently \"cd api && node server.js\" \"cd client && yarn start\""
+  },
+  "license": "MIT",
   "dependencies": {
-    "concurrently": "^6.2.0"
+    "concurrently": "^6.2.0",
+    "webpack": "^5.44.0"
   }
 }
