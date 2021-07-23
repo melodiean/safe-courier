@@ -1,8 +1,33 @@
 {
   "name": "safe-courier",
   "version": "1.0.0",
-  "main": "index.js",
-  "repository": "git@github.com:Melodiean/safe-courier.git",
+  "description": "Safe Courier",
+  "main": "server.js",
+  "repository": "git@github.com:Melodiean/safe-courier-back.git",
   "author": "Melodiean",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.12.14",
+    "nodemon": "^2.0.7",
+    "concurrently": "^6.2.0"
+  },
+  "scripts": {
+    "build": "cd client && yarn run build",
+        "install-client": "cd client && yarn install",
+        "heroku-postbuild": "yarn run install-client && yarn run build",
+        "server": "nodemon server.js",
+        "develop": "concurrently --kill-others-on-fail \"yarn run server\" \"yarn run start --prefix client\"",
+        "start": "concurrently --kill-others-on-fail \"yarn run server\" \"yarn run start --prefix client\""
+   
+  },
+  "engines":{
+    "node":"16.x",
+    "yarn":"1.22.10"
+  }
 }
