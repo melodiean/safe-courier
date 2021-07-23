@@ -49,9 +49,10 @@ mongoose.connect(
 app.use("/api/v1", parcelRouter);
 app.use("/api/v1", userRouter);
 
-app.use(express.static(path.join(__dirname, "client/build")));
+app.use(express.static(path.join(__dirname, "client","build")));
+
 app.get("*", (req, res) => {
-  res.send(path.join(__dirname, "client/build/index.html"));
+  res.send(path.join(__dirname, "/client/build/index.html"));
 });
 
 const PORT = process.env.PORT;
