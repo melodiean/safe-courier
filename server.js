@@ -58,5 +58,5 @@ const PORT = process.env.PORT;
 
 app.listen(PORT, () => {
   console.log(`API is live at http://localhost:${PORT}`);
-  console.log(`API is live at https://mnscapi.herokuapp.com/`);
+  console.log(`API is live at https://safecour.herokuapp.com/`);
 });
