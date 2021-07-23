@@ -1,5 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const path = require("path");
 
 const cookieParser = require("cookie-parser");
 
@@ -9,9 +10,11 @@ const cors = require("cors");
 
 app.use(cookieParser());
 
-app.use(cors({
-credentials: true,
-}));
+app.use(
+  cors({
+    credentials: true,
+  })
+);
 
 dotenv.config();
 
@@ -34,17 +37,22 @@ mongoose.connect(
     useCreateIndex: true,
   },
   (err) => {
-    if (err) console.log({DATABASE_ERR:err.message});
+    if (err) console.log({ DATABASE_ERR: err.message });
     console.log("SC Database connected!");
   }
 );
 
-app.get("/", (req, res) => {
-  res.json("Welcome to Safe Courier!");
-});
+// app.get("/", (req, res) => {
+//   res.json("Welcome to Safe Courier!");
+// });
 
 app.use("/api/v1", parcelRouter);
 app.use("/api/v1", userRouter);
+
+app.use(express.static(path.join(__dirname, "client/build")));
+app.get("*", (req, res) => {
+  res.send(path.join(__dirname, "client/build"));
+});
 
 const PORT = process.env.PORT;
 

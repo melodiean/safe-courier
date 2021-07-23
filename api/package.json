@@ -2,7 +2,7 @@
   "name": "safe-courier-back",
   "version": "1.0.0",
   "description": "Safe Courier API",
-  "main": "app.js",
+  "main": "index.js",
   "repository": "git@github.com:Melodiean/safe-courier-back.git",
   "author": "Melodiean",
   "license": "MIT",
@@ -15,5 +15,13 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.12.14",
     "nodemon": "^2.0.7"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "heroku-postbuild": "cd client &&  yarn install --only=dev && yarn install && yarn run build"
+  },
+  "engines":{
+    "node":"16.x",
+    "yarn":"1.22.10"
   }
 }
