@@ -42,10 +42,10 @@ mongoose.connect(
   }
 );
 
-app.use(express.static(path.join(__dirname, "client/build")));
+app.use("/api/v1", express.static(path.join(__dirname, "client/build")));
 
-app.get("/api/v1", (req, res) => {
-  res.sendFile(path.join(__dirname, "client/build", "index.html"));
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "client/build/index.html"));
 });
 
 app.use("/api/v1", parcelRouter);
