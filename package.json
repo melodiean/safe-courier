@@ -18,6 +18,10 @@
     "nodemon": "^2.0.7"
   },
   "scripts": {
+    "client": "cd client && yarn start",
+    "server": "nodemon server.js",
+    "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\"",
+    "dev:server": "cd client && yarn build && cd .. && yarn start",
     "heroku-postbuild": "cd client && yarn install && yarn run build",
     "start": "node server.js"
   },

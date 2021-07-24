@@ -149,7 +149,7 @@ sketch
 !.yarn/cache
 
 # production
-/build
+build/
 
 # and uncomment the following lines
 # .pnp.*

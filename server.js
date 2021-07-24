@@ -22,6 +22,7 @@ const parcelRouter = require("./routes/parcel");
 const userRouter = require("./routes/users");
 
 const db = process.env.DB;
+const PORT = process.env.PORT || 3020;
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
@@ -51,7 +52,6 @@ app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "client/build","index.html"));
 });
 
-const PORT = process.env.PORT;
 
 app.listen(PORT, () => {
   console.log(`API is live at http://localhost:${PORT}`);
