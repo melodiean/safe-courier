@@ -52,7 +52,6 @@ app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "client/build","index.html"));
 });
 
-
 app.listen(PORT, () => {
   console.log(`API is live at http://localhost:${PORT}`);
   console.log(`API is live at https://safecour.herokuapp.com/`);

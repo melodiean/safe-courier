@@ -37,7 +37,7 @@ export default function Login() {
       body: JSON.stringify(uData),
     };
 
-    fetch("/api/v1/auth/login", reqOptions)
+    fetch("/auth/login", reqOptions)
       .then((res) => res.json())
       .then((data) => {
         if (!data.isAuth) 
