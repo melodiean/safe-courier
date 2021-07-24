@@ -15,7 +15,7 @@ export const AuthProvider = (props) => {
   const [parcel, setParcel] = useState("");
 
   const authUser = async () => {
-    const res = await fetch("/auth/profile", {
+    const res = await fetch("/api/v1/auth/profile", {
       method: "GET",
       credentials: "include",
     })
