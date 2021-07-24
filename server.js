@@ -7,6 +7,8 @@ const cookieParser = require("cookie-parser");
 const app = express();
 const dotenv = require("dotenv");
 const cors = require("cors");
+const parcelRouter = require("./routes/parcel");
+const userRouter = require("./routes/users");
 
 app.use(cookieParser());
 
@@ -17,9 +19,6 @@ app.use(
 );
 
 dotenv.config();
-
-const parcelRouter = require("./routes/parcel");
-const userRouter = require("./routes/users");
 
 const db = process.env.DB;
 const PORT = process.env.PORT || 3020;
@@ -43,14 +42,14 @@ mongoose.connect(
   }
 );
 
-app.use("/api/v1", parcelRouter);
-app.use("/api/v1", userRouter);
-
 app.use(express.static(path.join(__dirname, "client/build")));
 
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "client/build","index.html"));
+  res.sendFile(path.join(__dirname, "client/build", "index.html"));
 });
+
+app.use("/api/v1", parcelRouter);
+app.use("/api/v1", userRouter);
 
 app.listen(PORT, () => {
   console.log(`API is live at http://localhost:${PORT}`);
