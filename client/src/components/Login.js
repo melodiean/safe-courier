@@ -1,6 +1,4 @@
-import React, { useState
-  , useContext 
-} from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../context/context";
 import Order from "./Order";
@@ -10,21 +8,19 @@ export default function Login() {
 
   const [err, setErr] = useState("");
 
-  
   const userInfo = {
     email: "",
     password: "",
   };
 
   const [userData, setUserData] = useState(userInfo);
-  
+
   const handleChange = (el) => {
     const { name, value } = el.target;
     setUserData({ ...userData, [name]: value });
   };
-  
-  const handleSubmit = (el) => {
 
+  const handleSubmit = (el) => {
     const uData = {
       email: userData.email,
       password: userData.password,
@@ -40,9 +36,8 @@ export default function Login() {
     fetch("/auth/login", reqOptions)
       .then((res) => res.json())
       .then((data) => {
-        if (!data.isAuth) 
-          setErr(data.message);
-          setIsAuth(true)
+        if (!data.isAuth) setErr(data.message);
+        setIsAuth(true);
       })
       .catch((er) => {
         console.log({ Error: er.message });
