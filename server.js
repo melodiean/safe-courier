@@ -49,7 +49,7 @@ app.use("/api/v1", userRouter);
 app.use(express.static(path.join(__dirname, "client/build")));
 
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname+"api/v1", "client/build","index.html"));
+  res.sendFile(path.join(__dirname, "client/build","index.html"));
 });
 
 
