@@ -22,7 +22,7 @@ function Parcel() {
 
   const f = async () => {
     if (pid) {
-      let res = await fetch(`/parcels/${pid}`, {
+      let res = await fetch(`/api/v1/parcels/${pid}`, {
         headers: {
           "Content-Type": "application/json",
           Accept: "application/json",
@@ -60,7 +60,7 @@ function Button(props) {
   const { parcel } = useContext(AuthContext);
   const pid = parcel.oid;
   const text = props.text;
-  const url = `/parcels/${pid}${props.url}`;
+  const url = `/api/v1/parcels/${pid}${props.url}`;
 
   const [msg, setMsg] = useState("");
 

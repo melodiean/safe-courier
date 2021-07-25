@@ -32,7 +32,7 @@ export default function Order(props) {
       body: JSON.stringify(uData),
     };
 
-    fetch("/parcels", reqOptions)
+    fetch("/api/v1/parcels", reqOptions)
       .then((res) => res.json())
       .then((data) => {
         if (data.success) console.log(data);
